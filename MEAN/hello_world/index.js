@@ -7,6 +7,9 @@ app.get('/',function(req, res){
 });
 */
 
+app.use(express.static(__dirname + '/public'));
+// HTTP method에 상관없이 실행.
+
 app.listen(3000,function(){
   console.log('Server On!');
 });
