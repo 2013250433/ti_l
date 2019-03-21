@@ -33,6 +33,7 @@ var getGenesisBlock = () => {
 
 var blockchain = [getGenesisBlock()];
 
+// TODO implement func calculateHashForBlock
 var isValidNewBlock = (newBlock, previousBlock) => {
 	if(previousBlock.index + 1 !== newBlock.index){
 		console.log('invalid index');
@@ -47,7 +48,7 @@ var isValidNewBlock = (newBlock, previousBlock) => {
 	return true;
 }
 
-// TODO implement func isValidChain
+// TODO implement func isValidChain, broadcast
 var replaceChain = (newBlocks) => {
 	if(isValidChain(newBlocks) && newBlocks.length > blockchain.length){
 		console.log('Replacing current blockchain with received blockchain');
@@ -57,8 +58,8 @@ var replaceChain = (newBlocks) => {
 		console.log('Received blockchain is invalid');
 	}
 }
-// TODO implement func broadcast, responseLatestMsg, calculateHashForBlock
 
+// TODO implement func addBlock, _, responseLatestMsg, connectToPeers  
 var initHttpServer = () => {
 	var app = express();
 	app.use(bodyParser.json());
@@ -81,7 +82,6 @@ var initHttpServer = () => {
 	
 };
 
-// TODO implement func connectToPeers
 var initP2PServer = () => {
 	var server = new WebSocket.Server({port: p2p_port});
 	server.on('connection',ws => initConnection(ws));
@@ -96,7 +96,7 @@ var initConnection = (ws) => {
 	write(ws, queryChainLengthMsg());
 }
 
-// TODO implement func responseLatestMsg,ChainMsg, handleBlockchainResponse
+// TODO implement func response _ ChainMsg, handleBlockchainResponse
 var initMessageHandler = (ws) => {
 	ws.on('message', (data) => {
 		var message = JSON.parse(data);
@@ -144,7 +144,7 @@ var connectToPeers = (newPeers) => {
 	})
 }
 
-//
+// TODO implement func responseLatestMsg, queryAllMsg()   
 var handleBlockchainResponse = (message) => {
 	var receivedBlocks = JSON.parse(message.data).sort((b1, b2) => (b1.index - b2.index));
 	var latestBlockReceived = receivedBlocks[receivedBlocks.length -1];
@@ -157,6 +157,9 @@ var handleBlockchainResponse = (message) => {
 			broadcast(responseLatestMsg());
 		} else if (receivedBlocks.length === 1){
 			console.log("We have to query the chain from our peer");
+			broadcast(queryAllMsg());
+		} else {
+			console.log("Received blockchain is longer than current blockchain");
 			replaceChain(receivedBlocks);
 		}
 	} else {
@@ -178,4 +181,11 @@ var isValidChain = (blockchainToValidate) => {
 	}
 	return true;
 }
+
+var getLatestBlock = () => blockchain[blockchain.length - 1];
+var queryChainLengthMsg = () => ({'type' : MessageType.QUERY_LATEST });
+var queryAllMsg = () => ({'type': MessageType.QUERY_ALL});
+var responseChainMsg = ()=>({
+	'type': MessageType.RESPONSE_BLOCKCHAIN, 'data': JSON.stringify(blockchain)
+});
 
