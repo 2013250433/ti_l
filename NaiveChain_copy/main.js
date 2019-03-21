@@ -164,4 +164,18 @@ var handleBlockchainResponse = (message) => {
 	}
 }
 
+var isValidChain = (blockchainToValidate) => {
+	if (JSON.stringfy(blockchainToValidate[0]) !== JSON.stringify(getGenesisBlock())){
+		return false;	
+	}
+	var tempBlocks = [blockchainToValidate[0]];
+	for(var i=1; var i < blockchainTOValidate.length; i++){
+		if(isValidNewBlock(blockchainToValidate[i], tempBlocks[i-1])){
+			tempBlocks.push(blockchainToValidate[i]);
+		}else {
+			return false;
+		}
+	}
+	return true;
+}
 
