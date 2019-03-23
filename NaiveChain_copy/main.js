@@ -1,3 +1,12 @@
+var CryptoJS = require("crypto-js");
+var express = require("express");
+var bodyParser = require("body-parser");
+var WebSocket = require("ws");
+
+var http_port = process.env.HTTP_PORT || 3001;
+var p2p_port = process.env.P2P_PORT || 6001;
+var initialPeers = process.env.PEERS ? process.env.PEERS.split(',') : [];
+
 class Block{
 	constructor(index, previousHash, timestamp, data, hash){
 		this.index = index;
@@ -64,7 +73,7 @@ var initHttpServer = () => {
 	var app = express();
 	app.use(bodyParser.json());
 
-	app.get('/blocks', (req, res) => res.send(JSON.stringfy(blockchain)));
+	app.get('/blocks', (req, res) => res.send(JSON.stringify(blockchain)));
 	app.post('/mineBlock', (req,res) => {
 		var newBlock = generateNextBlock(req.body.data);
 		addBlock(newBlock);
@@ -172,7 +181,7 @@ var isValidChain = (blockchainToValidate) => {
 		return false;	
 	}
 	var tempBlocks = [blockchainToValidate[0]];
-	for(var i=1; var i < blockchainTOValidate.length; i++){
+	for(var i=1; i < blockchainTOValidate.length; i++){
 		if(isValidNewBlock(blockchainToValidate[i], tempBlocks[i-1])){
 			tempBlocks.push(blockchainToValidate[i]);
 		}else {
@@ -186,6 +195,17 @@ var getLatestBlock = () => blockchain[blockchain.length - 1];
 var queryChainLengthMsg = () => ({'type' : MessageType.QUERY_LATEST });
 var queryAllMsg = () => ({'type': MessageType.QUERY_ALL});
 var responseChainMsg = ()=>({
-	'type': MessageType.RESPONSE_BLOCKCHAIN, 'data': JSON.stringify(blockchain)
+	'type': MessageType.RESPONSE_BLOCKCHAIN,
+	'data': JSON.stringify(blockchain)
+});
+var responseLatestMsg = () => ({
+	'type' : MessageType.RESPONSE_BLOCKCHAIN,
+	'data' : JSON.stringfy([getLatestBlock()])
 });
 
+var write = (ws, message) => ws.send(JSON.stringfy(message));
+var broadcast = (message) => sockets.forEach(socket => write(socket, message));
+
+connectToPeers(initialPeers);
+initHttpServer();
+initP2PServer();
