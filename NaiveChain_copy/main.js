@@ -31,9 +31,9 @@ var calculateHash = (index, previousHash, timestamp, data) => {
 var generateNextBlock = (blockData) => {
 	var previousBlock = getLatestBlock();
 	var nextIndex = previousBlock.index + 1;
-	var nextTimestamp = new Date().getTime / 1000;
+	var nextTimestamp = Math.floor(new Date().getTime() / 1000);
 	var nextHash = calculateHash(nextIndex, previousBlock.hash, nextTimestamp, blockData);
-	return new Block(nextIndex, previousBlock.hash, nextTimestamp, blockDtata, nexthash);
+	return new Block(nextIndex, previousBlock.hash, nextTimestamp, blockData, nextHash);
 }
 
 var getGenesisBlock = () => {
@@ -78,7 +78,7 @@ var initHttpServer = () => {
 		var newBlock = generateNextBlock(req.body.data);
 		addBlock(newBlock);
 		broadcast(responseLatestMsg());
-		console.log('block added: ' + JSON.stringfy(newBlock));
+		console.log('block added: ' + JSON.stringify(newBlock));
 	});
 	app.get('/peers', (req, res) => {
 		res.send(sockets.map(s => s._socket.remoteAddress + ':' + s._socket.remotePort));
@@ -177,7 +177,7 @@ var handleBlockchainResponse = (message) => {
 }
 
 var isValidChain = (blockchainToValidate) => {
-	if (JSON.stringfy(blockchainToValidate[0]) !== JSON.stringify(getGenesisBlock())){
+	if (JSON.stringify(blockchainToValidate[0]) !== JSON.stringify(getGenesisBlock())){
 		return false;	
 	}
 	var tempBlocks = [blockchainToValidate[0]];
@@ -200,7 +200,7 @@ var responseChainMsg = ()=>({
 });
 var responseLatestMsg = () => ({
 	'type' : MessageType.RESPONSE_BLOCKCHAIN,
-	'data' : JSON.stringfy([getLatestBlock()])
+	'data' : JSON.stringify([getLatestBlock()])
 });
 
 var write = (ws, message) => ws.send(JSON.stringfy(message));
