@@ -1,6 +1,26 @@
 import React, { Component, Fragment } from 'react';
 import {createPortal} from "react-dom";
 
+const BoundaryHoc = ProtectedComponent => class Boundary extends Component {
+  state = {
+    hasError: false
+  };
+
+  componentDidCatch = () => {
+    this.setState({
+      hasError: true
+    });
+  }
+
+  render() {
+    const {hasError} = this.state;
+    if(hasError){
+      return <ErrorFallback/>
+    } else {
+      return <ProtectedComponent/>
+    }
+  }
+} 
 class ErrorMaker extends Component{
   state = {
     friends: ["jisu", "flynn", "dall", "kneeprayer"]
@@ -17,6 +37,9 @@ class ErrorMaker extends Component{
     return friends.map(friend => ` ${friend}`)
   }
 }
+
+const PErrorMaker = BoundaryHoc(ErrorMaker)
+
 class Portals extends Component{
   render(){
     return createPortal(
@@ -25,6 +48,7 @@ class Portals extends Component{
     )
   }
 }
+const PPortals = BoundaryHoc(Portals)
 
 const Message = () => "Just touched it!";
 
@@ -57,6 +81,7 @@ class ReturnTypes extends Component{
 const ErrorFallback = () => " Sorry something went wrong";
 
 class App extends Component {
+  /*
   state = {
     hasError: false
   };
@@ -67,14 +92,18 @@ class App extends Component {
       hasError : true
     });
   }
+  
 
-  render() {
     const {hasError} = this.state;
+        {hasError ? <ErrorFallback /> : <ErrorMaker/>}
+  */
+ 
+  render() {
     return (
       <Fragment>
         <ReturnTypes />
-        <Portals></Portals>
-        {hasError ? <ErrorFallback /> : <ErrorMaker/>}
+        <PPortals />
+        <PErrorMaker />
       </Fragment>
     );
     
@@ -82,3 +111,4 @@ class App extends Component {
 }
 
 export default App;
+// export default BoundaryHoc(App);
