@@ -1,4 +1,7 @@
-import React, { Component, Fragment } from 'react';
+//import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+
+/*
 import {createPortal} from "react-dom";
 
 const BoundaryHoc = ProtectedComponent => class Boundary extends Component {
@@ -78,8 +81,38 @@ class ReturnTypes extends Component{
     </span>
 */
 
-const ErrorFallback = () => " Sorry something went wrong";
 
+//const ErrorFallback = () => " Sorry something went wrong";
+
+const MAX_PIZZAS = 20;
+
+const eatPizza = (state, props) => {
+  const {pizzas} = state;
+  
+  if(pizzas < MAX_PIZZAS){
+    return {
+      pizzas: pizzas + 1
+    }
+  } else {
+    return null;
+  }
+}
+class Controlled extends Component {
+  state = {
+    pizzas:0
+  }
+  render (){
+    const { pizzas } = this.state;
+    return <button onClick={this._handleClick}>{`I have eaten ${pizzas} ${
+      pizzas === 1 ? "pizza" : "pizzas"
+    }`}</button>
+  }
+
+  _handleClick = () => {
+    this.setState(eatPizza);
+    //this.setState(pizzas:null)
+  }
+}
 class App extends Component {
   /*
   state = {
@@ -97,14 +130,9 @@ class App extends Component {
     const {hasError} = this.state;
         {hasError ? <ErrorFallback /> : <ErrorMaker/>}
   */
- 
+
   render() {
-    return (
-      <Fragment>
-        <ReturnTypes />
-        <PPortals />
-        <PErrorMaker />
-      </Fragment>
+    return ( <Controlled/>
     );
     
   }
