@@ -75,6 +75,7 @@ var initHttpServer = () => {
 
 	app.get('/blocks', (req, res) => res.send(JSON.stringify(blockchain)));
 	app.post('/mineBlock', (req,res) => {
+		// TODO fix curl: (52) Empty reply from server
 		var newBlock = generateNextBlock(req.body.data);
 		addBlock(newBlock);
 		broadcast(responseLatestMsg());
@@ -83,6 +84,8 @@ var initHttpServer = () => {
 	app.get('/peers', (req, res) => {
 		res.send(sockets.map(s => s._socket.remoteAddress + ':' + s._socket.remotePort));
 	});
+
+	// HTTP_PORT=3002 P2P_PORT=6002 PEERS=http://localhost:3001 node main.js
 	app.post('/addPeer', (req, res) => {
 		connectToPeers([req.body.peer]);
 		res.send();
@@ -99,6 +102,7 @@ var initP2PServer = () => {
 
 // TODO implement func queryChainLengthMsg
 var initConnection = (ws) => {
+	console.log("is websocket working?");
 	sockets.push(ws);
 	initMessageHandler(ws);
 	initErrorHandler(ws);
@@ -109,7 +113,7 @@ var initConnection = (ws) => {
 var initMessageHandler = (ws) => {
 	ws.on('message', (data) => {
 		var message = JSON.parse(data);
-		console.log('Received message' + JSON.stringfy(message));
+		console.log('Received message' + JSON.stringify(message));
 		switch (message.type) {
 			case MessageType.QUERY_LATEST:
 				write(ws, responseLatestMsg());
@@ -145,10 +149,11 @@ var addBlock = (newBlock) => {
 
 var connectToPeers = (newPeers) => {
 	newPeers.forEach((peer) => {
+		console.log('Connecting to_ '+peer);
 		var ws = new WebSocket(peer);
 		ws.on('open', () => initConnection(ws));
-		ws.on('error', () => {
-			console.log('connection failed')
+		ws.on('error', (err) => {
+			console.log('connection failed: '+err);
 		})
 	})
 }
@@ -181,7 +186,7 @@ var isValidChain = (blockchainToValidate) => {
 		return false;	
 	}
 	var tempBlocks = [blockchainToValidate[0]];
-	for(var i=1; i < blockchainTOValidate.length; i++){
+	for(var i=1; i < blockchainToValidate.length; i++){
 		if(isValidNewBlock(blockchainToValidate[i], tempBlocks[i-1])){
 			tempBlocks.push(blockchainToValidate[i]);
 		}else {
@@ -203,7 +208,7 @@ var responseLatestMsg = () => ({
 	'data' : JSON.stringify([getLatestBlock()])
 });
 
-var write = (ws, message) => ws.send(JSON.stringfy(message));
+var write = (ws, message) => ws.send(JSON.stringify(message));
 var broadcast = (message) => sockets.forEach(socket => write(socket, message));
 
 connectToPeers(initialPeers);
