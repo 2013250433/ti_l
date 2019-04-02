@@ -1,6 +1,29 @@
-import React, { Component, Fragment } from 'react';
+//import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+
+/*
 import {createPortal} from "react-dom";
 
+const BoundaryHoc = ProtectedComponent => class Boundary extends Component {
+  state = {
+    hasError: false
+  };
+
+  componentDidCatch = () => {
+    this.setState({
+      hasError: true
+    });
+  }
+
+  render() {
+    const {hasError} = this.state;
+    if(hasError){
+      return <ErrorFallback/>
+    } else {
+      return <ProtectedComponent/>
+    }
+  }
+} 
 class ErrorMaker extends Component{
   state = {
     friends: ["jisu", "flynn", "dall", "kneeprayer"]
@@ -17,6 +40,9 @@ class ErrorMaker extends Component{
     return friends.map(friend => ` ${friend}`)
   }
 }
+
+const PErrorMaker = BoundaryHoc(ErrorMaker)
+
 class Portals extends Component{
   render(){
     return createPortal(
@@ -25,6 +51,7 @@ class Portals extends Component{
     )
   }
 }
+const PPortals = BoundaryHoc(Portals)
 
 const Message = () => "Just touched it!";
 
@@ -54,9 +81,40 @@ class ReturnTypes extends Component{
     </span>
 */
 
-const ErrorFallback = () => " Sorry something went wrong";
 
+//const ErrorFallback = () => " Sorry something went wrong";
+
+const MAX_PIZZAS = 20;
+
+const eatPizza = (state, props) => {
+  const {pizzas} = state;
+  
+  if(pizzas < MAX_PIZZAS){
+    return {
+      pizzas: pizzas + 1
+    }
+  } else {
+    return null;
+  }
+}
+class Controlled extends Component {
+  state = {
+    pizzas:0
+  }
+  render (){
+    const { pizzas } = this.state;
+    return <button onClick={this._handleClick}>{`I have eaten ${pizzas} ${
+      pizzas === 1 ? "pizza" : "pizzas"
+    }`}</button>
+  }
+
+  _handleClick = () => {
+    this.setState(eatPizza);
+    //this.setState(pizzas:null)
+  }
+}
 class App extends Component {
+  /*
   state = {
     hasError: false
   };
@@ -67,18 +125,18 @@ class App extends Component {
       hasError : true
     });
   }
+  
+
+    const {hasError} = this.state;
+        {hasError ? <ErrorFallback /> : <ErrorMaker/>}
+  */
 
   render() {
-    const {hasError} = this.state;
-    return (
-      <Fragment>
-        <ReturnTypes />
-        <Portals></Portals>
-        {hasError ? <ErrorFallback /> : <ErrorMaker/>}
-      </Fragment>
+    return ( <Controlled/>
     );
     
   }
 }
 
 export default App;
+// export default BoundaryHoc(App);
