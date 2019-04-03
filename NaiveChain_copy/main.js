@@ -102,8 +102,8 @@ var initP2PServer = () => {
 
 // TODO implement func queryChainLengthMsg
 var initConnection = (ws) => {
-	console.log("is websocket working?");
-	sockets.push(ws);
+	console.log("is websocket working?: "+ws._socket.remoteAddress+":"+ws._socket.remotePort);
+	sockets.push(ws); //why ["::ffff:127.0.0.1:54081"]?
 	initMessageHandler(ws);
 	initErrorHandler(ws);
 	write(ws, queryChainLengthMsg());
