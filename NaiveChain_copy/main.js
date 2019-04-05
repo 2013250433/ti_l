@@ -82,7 +82,8 @@ var initHttpServer = () => {
 		console.log('block added: ' + JSON.stringify(newBlock));
 	});
 	app.get('/peers', (req, res) => {
-		res.send(sockets.map(s => s._socket.remoteAddress + ':' + s._socket.remotePort));
+		//res.send(sockets.map(s => s._socket.remoteAddress + ':' + s._socket.remotePort));
+		res.send(sockets.map(s => s._socket.address().address + ':' + s._socket.address().port));
 	});
 
 	// HTTP_PORT=3002 P2P_PORT=6002 PEERS=http://localhost:3001 node main.js
@@ -102,7 +103,7 @@ var initP2PServer = () => {
 
 // TODO implement func queryChainLengthMsg
 var initConnection = (ws) => {
-	console.log("is websocket working?: "+ws._socket.remoteAddress+":"+ws._socket.remotePort);
+	console.log("is websocket working?: "+ws._socket.remoteAddress+":"+ws._socket.remotePort);//at net Package?
 	sockets.push(ws); //why ["::ffff:127.0.0.1:54081"]?
 	initMessageHandler(ws);
 	initErrorHandler(ws);
@@ -147,10 +148,10 @@ var addBlock = (newBlock) => {
 	}
 }
 
-var connectToPeers = (newPeers) => {
+var connectToPeers = (newPeers) => { // only for second node
 	newPeers.forEach((peer) => {
 		console.log('Connecting to_ '+peer);
-		var ws = new WebSocket(peer);
+		var ws = new WebSocket(peer); // in initP2PServer, its WebSocket.Server
 		ws.on('open', () => initConnection(ws));
 		ws.on('error', (err) => {
 			console.log('connection failed: '+err);
