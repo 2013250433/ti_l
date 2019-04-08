@@ -107,7 +107,7 @@ var initConnection = (ws) => {
 	sockets.push(ws); //why ["::ffff:127.0.0.1:54081"]?
 	initMessageHandler(ws);
 	initErrorHandler(ws);
-	write(ws, queryChainLengthMsg());
+	write(ws, queryChainLengthMsg()); // TODO connectToPeers, initP2PServer -> latest message
 }
 
 // TODO implement func response _ ChainMsg, handleBlockchainResponse
