@@ -83,7 +83,8 @@ var initHttpServer = () => {
 	});
 	app.get('/peers', (req, res) => {
 		//res.send(sockets.map(s => s._socket.remoteAddress + ':' + s._socket.remotePort));
-		res.send(sockets.map(s => s._socket.address().address + ':' + s._socket.address().port));
+		//res.send(sockets.map(s => s._socket.address().address + ':' + s._socket.address().port));
+		res.send(sockets);
 	});
 
 	// HTTP_PORT=3002 P2P_PORT=6002 PEERS=http://localhost:3001 node main.js
@@ -104,7 +105,8 @@ var initP2PServer = () => {
 // TODO implement func queryChainLengthMsg
 var initConnection = (ws) => {
 	console.log("is websocket working?: "+ws._socket.remoteAddress+":"+ws._socket.remotePort);//at net Package?
-	sockets.push(ws); //why ["::ffff:127.0.0.1:54081"]?
+	//sockets.push(ws); //why ["::ffff:127.0.0.1:54081"]?
+	sockets.push(ws._socket.address().address+':'+ws._socket.address().port);
 	initMessageHandler(ws);
 	initErrorHandler(ws);
 	write(ws, queryChainLengthMsg()); // TODO connectToPeers, initP2PServer -> latest message
@@ -161,11 +163,11 @@ var connectToPeers = (newPeers) => { // only for second node
 
 // TODO implement func responseLatestMsg, queryAllMsg()   
 var handleBlockchainResponse = (message) => {
-	var receivedBlocks = JSON.parse(message.data).sort((b1, b2) => (b1.index - b2.index));
+	var receivedBlocks = JSON.parse(message.data).sort((b1, b2) => (b1.index - b2.index)); // sort by index
 	var latestBlockReceived = receivedBlocks[receivedBlocks.length -1];
 	var latestBlockHeld = getLatestBlock();
 	if(latestBlockReceived.index > latestBlockHeld.index){
-		console.log('blockchain possibly behind. We got: '+latestBlockHeld.indx + ' Peer got: ' + latestBlockReceived.index);
+		console.log('blockchain possibly behind. We got: '+latestBlockHeld.index + ' Peer got: ' + latestBlockReceived.index);
 		if(latestBlockHeld.hash === latestBlockReceived.previousHash){
 			console.log("We can append tree received block to our chain");
 			blockchain.push(latestBlockReceived);
