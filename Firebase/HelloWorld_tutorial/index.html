@@ -5,7 +5,14 @@
 	<title>Firebase Web Quickstart</title>
     </head>
     <body>
+	<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
 	<script src="./firebase_init.js"></script>
-
+	<h1 id="bigOne"></h1>
+	
+	<script>
+	 var bigOne = document.getElementById('bigOne');
+	 var dbRef = firebase.database().ref().child('text');
+	 dbRef.on('value',snap => bigOne.innerText = snap.val());
+	</script>
     </body>
 </html>
