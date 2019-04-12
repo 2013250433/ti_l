@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator, StatusBar } from 'react-native';
 import Weather from "./Weather";
 
 export default class App extends Component {
@@ -10,6 +10,7 @@ export default class App extends Component {
     const {isLoaded} = this.state;
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content"/>
         {isLoaded ? <Weather /> : ( 
           <View style={styles.loading}>
           <Text style={styles.loadingText}>Getting the fucking weather</Text>
@@ -19,6 +20,8 @@ export default class App extends Component {
     );
   }
 }
+
+// <StatusBar hidden={true}/>
 
 const styles = StyleSheet.create({
   container: {
