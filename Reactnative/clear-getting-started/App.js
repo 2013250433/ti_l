@@ -1,10 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, } from 'react-native';
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {t: ''};
+  }
   render() {
     return (
       <View style={styles.container}>
+        <TextInput 
+          style={{height:20}}
+          placeholder="Type here"
+          onChangeText={(t)=> this.setState({t})}
+        />
         <Greeting name="Berry"/>
         <Greeting name="Elly"/>
         <Greeting name="John"/> 
@@ -41,7 +50,7 @@ class Blink extends React.Component {
       return null;
     } else {
       return(
-      <Text>{this.props.text}</Text>
+      <Text style={[styles.red, styles.big]}>{this.props.text}</Text>
       );
     }
   }
@@ -54,4 +63,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  red: {
+    color: 'red',
+  },
+  big: {
+    fontSize: 30,
+    fontWeight: 'bold',
+  }
 });
