@@ -1,11 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-const CardView = ({data}) => (
+const CardView = ({title,message}) => (
     <View style={styles.CardContainer}>
-        <Image source={{uri: data.image}} style={{width:"100%", height: 200, borderRadius: 4}}/>
-        <Text style={styles.CardTitle}>{data.name}</Text>
-        <Text style={styles.CardContent}>{data.address}</Text>
+        <Text style={styles.CardTitle}>{title}</Text>
+        <Text style={styles.CardContent}>{message}</Text>
     </View>
 )
 
@@ -30,3 +29,5 @@ const styles = StyleSheet.create({
         padding: 3
     },
 });
+
+export default CardView;
