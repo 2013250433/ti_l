@@ -3,6 +3,7 @@ import {StyleSheet, Text, View,} from 'react-native';
 import {LinearGradient} from "expo";
 import {Ionicons} from "@expo/vector-icons";
 import PropTypes from "prop-types";
+//import {MaterialCommunityIcon} from "@expo/vector-icons"
 
 //fontawesome
 /*export default class Weather extends Component{
