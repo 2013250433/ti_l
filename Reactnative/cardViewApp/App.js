@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, FlatList, Text, Button, ScrollView, Image, Dimensions } from 'react-native';
+import { StyleSheet, View, SafeAreaView, FlatList, Text, TouchableHighlight, ScrollView, Image, Dimensions } from 'react-native';
 import CardView from './components/CardView';
 import Header from './components/Header';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
+
 
 class Home extends React.Component {
 
@@ -15,31 +16,48 @@ class Home extends React.Component {
   }
 
   render() {
+    let screenWidth = Dimensions.get('window').width;
     return (
-      <SafeAreaView style={styles.container}>
         <ScrollView>
           <Image
-          style={{width: Dimensions.get('window').width}}
-          source={require('./src/main01.jpg')}
-          resizeMode='stretch'
+          style={{width: screenWidth, height: screenWidth * 396/863}}
+          source={require('./src/M1.jpg')}
           />
-          <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
-            <Image
-            style={{width: Dimensions.get('window').width}}
-            source={require('./src/main02.jpg')}
-            resizeMode='stretch'
-            />
+          <TouchableHighlight onPress={()=> this.props.navigation.navigate('News')}>
+          <Image
+          style={{width: Dimensions.get('window').width, height: screenWidth * 343/863}}
+          source={require('./src/M2.jpg')}
+          />
           </TouchableHighlight>
           <Image
-          style={{width: Dimensions.get('window').width}}
-          source={require('./src/main03.jpg')}
-          resizeMode='stretch'
+          style={{width: Dimensions.get('window').width, height: screenWidth * 1430/863}}
+          source={require('./src/M3.jpg')}
           />
         </ScrollView>
-      </SafeAreaView>
     );
   }
 }
+/*
+          <ScrollView>
+          <Image
+          style={{width: Dimensions.get('window').width, height: '10%'}}
+          source={require('./src/M1.jpg')}
+          resizeMode="stretch"
+          />
+          <TouchableHighlight onPress={()=> this.props.navigation.navigate('News')}>
+          <Image
+          style={{width: Dimensions.get('window').width}}
+          source={require('./src/M2.jpg')}
+          resizeMode="stretch"
+          />
+          </TouchableHighlight>
+          <Image
+          style={{width: Dimensions.get('window').width}}
+          source={require('./src/M3.jpg')}
+          resizeMode="stretch"
+          />
+        </ScrollView>
+*/
 
 /*
 <Header style={styles.header}></Header>
@@ -69,9 +87,8 @@ class News extends React.Component {
     <ScrollView
       contentContainerStyle={{alignItems: 'center'}}>
       <Image
-      style={{width: Dimensions.get('window').width}}
+      style={{width: Dimensions.get('window').width, height: Dimensions.get('window').width * 4557/863}}
       source={require('./src/send01-06.jpg')}
-      resizeMode='stretch'
       />
     </ScrollView>
     );
