@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, FlatList, Text } from 'react-native';
+import { StyleSheet, View, SafeAreaView, FlatList, Text, Button, ScrollView, Image, Dimensions } from 'react-native';
 import CardView from './components/CardView';
 import Header from './components/Header';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-export default class App extends React.Component {
+class Home extends React.Component {
 
   constructor(props){
     super(props);
@@ -16,6 +17,10 @@ export default class App extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <Header style={styles.header}></Header>
+        <Button
+          title="Go to Details"
+          onPress={() => this.props.navigation.navigate('News')}
+        />
         <FlatList styles={styles.cardContainer}
           data={[
             {key: 'title aaaaaaaaaaaaaaassssss', message: 'message'},
@@ -35,6 +40,19 @@ export default class App extends React.Component {
   }
 }
 
+class News extends React.Component {
+  render(){
+    return(
+    <ScrollView
+      contentContainerStyle={{alignItems: 'center'}}>
+      <Image
+      source={require('./src/expcol3.png')}
+      resizeMode='cover'
+      />
+    </ScrollView>
+    );
+  }
+}
 const styles = StyleSheet.create({
   header: {
     flex: 1,
@@ -51,3 +69,15 @@ const styles = StyleSheet.create({
     width: '100%',
   }
 });
+
+const MainNavigator = createStackNavigator({
+  Home: {screen: Home},
+  News: {screen: News},
+},{
+  initialRouteName: "Home"
+}
+);
+
+const App = createAppContainer(MainNavigator);
+
+export default App;
