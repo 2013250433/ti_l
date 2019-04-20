@@ -8,6 +8,7 @@ class Home extends React.Component {
 
   constructor(props){
     super(props);
+    console.log(Dimensions.get('window').width)
   }
 
   componentDidMount(){
@@ -16,7 +17,32 @@ class Home extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Header style={styles.header}></Header>
+        <ScrollView>
+          <Image
+          style={{width: Dimensions.get('window').width}}
+          source={require('./src/main01.jpg')}
+          resizeMode='stretch'
+          />
+          <TouchableHighlight onPress={() => this.props.navigation.navigate('News')}>
+            <Image
+            style={{width: Dimensions.get('window').width}}
+            source={require('./src/main02.jpg')}
+            resizeMode='stretch'
+            />
+          </TouchableHighlight>
+          <Image
+          style={{width: Dimensions.get('window').width}}
+          source={require('./src/main03.jpg')}
+          resizeMode='stretch'
+          />
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+}
+
+/*
+<Header style={styles.header}></Header>
         <Button
           title="Go to Details"
           onPress={() => this.props.navigation.navigate('News')}
@@ -35,10 +61,7 @@ class Home extends React.Component {
           ]}
           renderItem={({item}) => (<CardView title={item.key} message={item.message}/>)}
         />
-      </SafeAreaView>
-    );
-  }
-}
+*/
 
 class News extends React.Component {
   render(){
@@ -46,11 +69,13 @@ class News extends React.Component {
     <ScrollView
       contentContainerStyle={{alignItems: 'center'}}>
       <Image
-      source={require('./src/expcol3.png')}
-      resizeMode='cover'
+      style={{width: Dimensions.get('window').width}}
+      source={require('./src/send01-06.jpg')}
+      resizeMode='stretch'
       />
     </ScrollView>
     );
+
   }
 }
 const styles = StyleSheet.create({
