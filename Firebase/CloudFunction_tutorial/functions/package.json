@@ -12,7 +12,12 @@
   "main": "lib/index.js",
   "dependencies": {
     "firebase-admin": "~7.0.0",
+<<<<<<< HEAD
     "firebase-functions": "^2.2.0"
+=======
+    "firebase-functions": "^2.2.0",
+    "web3": "^0.14.1"
+>>>>>>> 1c6a7dadd646f0effc9f0dc71bd814bea8cea25e
   },
   "devDependencies": {
     "tslint": "^5.12.0",

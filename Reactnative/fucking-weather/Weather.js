@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View,} from 'react-native';
 import {LinearGradient} from "expo";
-import {Ionicons} from "@expo/vector-icons"
+import {Ionicons} from "@expo/vector-icons";
+import PropTypes from "prop-types";
+//import {MaterialCommunityIcon} from "@expo/vector-icons"
+
 //fontawesome
-export default class Weather extends Component{
+/*export default class Weather extends Component{
     render(){
         return(
         <LinearGradient colors={["#00C6FB","#005BEA"]} style={styles.container}>
@@ -19,6 +22,61 @@ export default class Weather extends Component{
         );
     }
 }
+*/
+const weatherCases = {
+    Rain: {
+        colors:["#00C6FB","#005BEA"],
+        title: "Raining like a MF",
+        subtitle: "Look outside",
+        icon: 'ios-rainy'
+    },
+    Clear:{
+        colors:["#00C6FB","#005BEA"],
+        title: "Sunny as fuck",
+        subtitle: "Get your skin burnt",
+        icon: 'ios-sunny'
+    },
+    Thunderstorm:{
+        colors:["#00C6FB","#005BEA"],
+        title: "Thunderstorm",
+        subtitle: "Look outside",
+        icon: 'ios-thunderstorm'
+    },
+    Clouds:{
+        colors:["#00C6FB","#005BEA"],
+        title: "Clouds",
+        subtitle: "Look outside",
+        icon: 'ios-cloudy'
+    },
+    Snow:{
+        colors:["#00C6FB","#005BEA"],
+        title: "Snow",
+        subtitle: "Look outside",
+        icon: 'ios-snow'
+    },
+}
+function Weather({weatherName, temp}){
+    console.log(weatherName);
+    return(
+        <LinearGradient colors={["#00C6FB","#005BEA"]} style={styles.container}>
+        <View style={styles.upper}>
+            <Ionicons color="white" size={144} name={weatherCases[weatherName].icon}/>
+            <Text style={styles.temp}>{temp} c</Text>
+        </View>
+        <View style={styles.lower}>
+            <Text style={styles.title}>{weatherCases[weatherName].title}</Text>
+            <Text style={styles.subtitle}>{weatherCases[weatherName].subtitle}</Text>
+        </View>
+        </LinearGradient>
+    );
+}
+
+Weather.propTypes = {
+    temp: PropTypes.number.isRequired,
+    weather: PropTypes.string.isRequired,
+}
+
+export default Weather;
 
 const styles = StyleSheet.create({
     container: {
