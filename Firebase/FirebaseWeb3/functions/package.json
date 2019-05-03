@@ -9,6 +9,7 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
+    "express": "^4.16.4",
     "firebase-admin": "~7.0.0",
     "firebase-functions": "^2.2.0",
     "web3": "^0.14.0"

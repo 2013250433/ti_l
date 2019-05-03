@@ -6,7 +6,9 @@ web3.version.getNetwork(function(error,result){
 	console.log(result);
 })
 */
-var Web3 = require('web3'); //why require instead of import?
+const Web3 = require('web3'); //why require instead of import?
+const express = require('express');
+const app = express();
 
 if(typeof web3 !== 'undefined'){
 	web3 = new Web3(web3.currentProvider);
@@ -65,6 +67,19 @@ web3.net.getPeerCount(function(error,result){
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 
+app.get('/',(req,res)=>{
+	res.send("Latest transaction: ");
+});
+app.post('/',(req,res)=>{
+	res.send("Transaction hash: "+req+" "+req.body);
+	//console.log(req);
+	console.log(req.body);
+})
+
+/*
+
+exports.transaction = functions.https.onRequest(app);
+
 exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello from Firebase!!!");
 });
@@ -82,3 +97,5 @@ exports.getUser = functions.https.onRequest((request, response)=>{
 			console.log(error);
 	})	
 });
+
+*/
