@@ -8,6 +8,8 @@ npm install express
 
 npm install ethereumjs-tx@^1.3.3 
 
+npm install fs
+
 firebase deploy --only functions
 
 https://us-central1-functionsweb3.cloudfunctions.net/helloWorld
