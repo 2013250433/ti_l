@@ -8,9 +8,11 @@ web3.version.getNetwork(function(error,result){
 */
 const Web3 = require('web3'); //why require instead of import?
 const EthereumTx = require('ethereumjs-tx');
-const fs = require('fs');
+//const fs = require('fs');
+//var Syncdata = fs.readFileSync('./PrivateKey.txt','utf8');
 const express = require('express');
 const app = express();
+const PK = require('./privateKey.js');
 
 if(typeof web3 !== 'undefined'){
 	web3 = new Web3(web3.currentProvider);
@@ -20,53 +22,31 @@ if(typeof web3 !== 'undefined'){
 console.log(web3.currentProvider);
 
 /*
-var gsContract = web3.eth.contract(
-[
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "getUser",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"name": "_point",
-				"type": "uint256"
-			}
-		],
-		"name": "setUser",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-]);
+var privateKey = Buffer.from(PK.pk, 'hex');
 
-var gs = gsContract.at("0x70989302e707D438019019607Df2771326FaCE67");
-*/
-
-/*
-web3.net.getPeerCount(function(error,result){
-	console.log("Peer count: "+result);
-})
+	var nce = web3.eth.getTransactionCount("0xC39BBb80FbAb2738E358FC9C03cd69AA410c68C0"); 
+	nce = web3.toHex(nce);
+	var rawTx = {
+		 nonce: nce,
+		 gasPrice: '0x09184e72a000',
+		 gasLimit: '0x30000',
+		 to: '0xa3c84a57f0995504b78476884f5ceDE50B733C47',	//Account2
+		 value: '0x00', 
+		 data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057',
+		}
+		
+	var tx = new EthereumTx(rawTx);
+		tx.sign(privateKey);
+		
+	var serializedTx = tx.serialize();
+	web3.eth.sendRawTransaction('0x' + serializedTx.toString('hex'), function(err, hash) {
+		 if (!err){
+			console.log(hash);
+		 }
+		 else{
+			console.log(err);
+		 }
+	});
 */
 
 // // Create and Deploy Your First Cloud Functions
@@ -80,7 +60,7 @@ app.post('/transaction',(req,res)=>{
 	//console.log(req.body);
 	var Syncdata = fs.readFileSync('PrivateKey.txt','utf8');
 	
-	var privateKey = Buffer.from(Syncdata, 'hex');
+	var privateKey = Buffer.from(PK.pk, 'hex');
 
 	var nce = web3.eth.getTransactionCount("0xC39BBb80FbAb2738E358FC9C03cd69AA410c68C0"); 
 	nce = web3.toHex(nce);
@@ -90,7 +70,7 @@ app.post('/transaction',(req,res)=>{
 		 gasLimit: '0x30000',
 		 to: '0xa3c84a57f0995504b78476884f5ceDE50B733C47',	//Account2
 		 value: '0x00', 
-		 data: '0x1234',
+		 data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057',
 		}
 		
 	var tx = new EthereumTx(rawTx);
@@ -100,20 +80,27 @@ app.post('/transaction',(req,res)=>{
 	web3.eth.sendRawTransaction('0x' + serializedTx.toString('hex'), function(err, hash) {
 		 if (!err){
 			console.log(hash);
-			res.send("Transaction hash: "+hash)
 		 }
 		 else{
-			res.send("Error!");
+			console.log("Error!");
 		 }
 		});
+})
+app.post('/simple',(req,res)=>{
+	res.send('Received POST request!: '+req.body.param1);
+	//curl -d "param1=value2" -X POST http://localhost:5000/functionsweb3/us-central1/ropsten/simple
+})
 
+app.post('/balance',(req,res)=>{
+	res.send('Balance of '+req.body.address+': '+web3.eth.getBalance(req.body.address).toNumber());
+	//curl -d "address=0xC39BBb80FbAb2738E358FC9C03cd69AA410c68C0" -X POST http://localhost:5000/functionsweb3/us-central1/ropsten/balance
 })
 
 exports.ropsten = functions.https.onRequest(app);
 exports.notrest = functions.https.onRequest((request, response) => {
-	var Syncdata = fs.readFileSync('PrivateKey.txt','utf8');
+	//var Syncdata = fs.readFileSync('PrivateKey.txt','utf8');
 	
-	var privateKey = Buffer.from(Syncdata, 'hex');
+	var privateKey = Buffer.from(PK.pk, 'hex');
 
 	var nce = web3.eth.getTransactionCount("0xC39BBb80FbAb2738E358FC9C03cd69AA410c68C0"); 
 	nce = web3.toHex(nce);
@@ -123,7 +110,7 @@ exports.notrest = functions.https.onRequest((request, response) => {
 		 gasLimit: '0x30000',
 		 to: '0xa3c84a57f0995504b78476884f5ceDE50B733C47',	//Account2
 		 value: '0x00', 
-		 data: '0x1234',
+		 data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057',
 		}
 		
 	var tx = new EthereumTx(rawTx);
@@ -133,12 +120,11 @@ exports.notrest = functions.https.onRequest((request, response) => {
 	web3.eth.sendRawTransaction('0x' + serializedTx.toString('hex'), function(err, hash) {
 		 if (!err){
 			console.log(hash);
-			response.send("Transaction hash: "+hash)
 		 }
 		 else{
-			response.send("Error!");
+			console.log("Error!");
 		 }
-		});
+	});
 });
 /*
 exports.helloWorld = functions.https.onRequest((request, response) => {
