@@ -58,8 +58,8 @@ app.get('/transaction',(req,res)=>{
 app.post('/transaction',(req,res)=>{
 	//res.send("Transaction hash: "+req+" "+req.body);
 	//console.log(req.body);
-	var Syncdata = fs.readFileSync('PrivateKey.txt','utf8');
-	
+	//var Syncdata = fs.readFileSync('PrivateKey.txt','utf8');
+	console.log('provider: '+web3.currentProvider);
 	var privateKey = Buffer.from(PK.pk, 'hex');
 
 	var nce = web3.eth.getTransactionCount("0xC39BBb80FbAb2738E358FC9C03cd69AA410c68C0"); 
@@ -87,6 +87,7 @@ app.post('/transaction',(req,res)=>{
 		});
 })
 app.post('/simple',(req,res)=>{
+	console.log('provider: '+JSON.stringify(web3.currentProvider));
 	res.send('Received POST request!: '+req.body.param1);
 	//curl -d "param1=value2" -X POST http://localhost:5000/functionsweb3/us-central1/ropsten/simple
 })
