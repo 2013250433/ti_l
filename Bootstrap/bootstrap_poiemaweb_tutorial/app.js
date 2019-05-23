@@ -6,6 +6,7 @@ app.get('/',(req,res)=>{
 })
 
 app.listen(3000, (err)=>{
+		console.log(__dirname);
 	if(!err)
 		console.log('listening on port 3000');
 })
