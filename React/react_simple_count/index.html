@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  class Counter extends React.Component {
+    constructor( props ) {
+      super( props );
+      this.state = {
+        count: 0
+      };
+      this.plusCount = this.plusCount.bind( this );
+      this.minusCount = this.minusCount.bind( this );
+    }
+    plusCount() {
+      this.setState( { count: this.state.count + 1 } );
+    }
+    minusCount() {
+      this.setState( { count: this.state.count - 1 } );
+    }
+    render() {
+      return <div>
+          <div style={{ padding: '20px' }}>
+              COUNT : {this.state.count}
+          </div>
+          <button onClick={this.plusCount}>plus</button>
+        {this.state.count > 0 ?
+                <button onClick={this.minusCount}>minus</button>
+          : null}
+      </div>;
+    }
+  }
+  ReactDOM.render( 
+    <Counter />, 
+    document.getElementById( 'root' ) 
+  );
+</script>
+</body>
+
+</html>
