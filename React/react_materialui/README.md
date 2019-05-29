@@ -1,6 +1,7 @@
-### Setup
+## Setup
 
 create-react-app react_materialui
+
 npm install @material-ui/core
 
 ---
