@@ -1,26 +1,42 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define COL 3
-#define ROW 4
+#define ROW 3
+#define COL 4
 int main(){
     int** m;
-    m = (int**)malloc(sizeof(int**) * COL);
+    m = (int**)malloc(sizeof(int*) * ROW);
     
     for(int i=0;i<ROW;i++){
-        *(m+i) = (int*)malloc(sizeof(int*) * ROW);
+        *(m+i) = (int*)malloc(sizeof(int) * COL);
     }
     
-    for(int i=0;i<COL;i++){
-        for(int j=0;j<ROW;j++)
-            *(*(m+j)+i) = i+j;
+    for(int i=0;i<ROW;i++){
+        for(int j=0;j<COL;j++){
+            //*(*(m+j)+i) = i+j;
+            m[i][j] = i + j;
+        }
     }
     
-    for(int i=0;i<COL;i++){
-        for(int j=0;j<ROW;j++){
-            printf("%d ",*(*(m+j)+i));
+    for(int i=0;i<ROW;i++){
+        for(int j=0;j<COL;j++){
+            //printf("%d ",*(*(m+j)+i));
+            printf("%d ",m[i][j]);
         }
         printf("\n");
     }
     
+    for(int i=0;i<ROW;i++){
+        for(int j=0;j<COL;j++){
+            //printf("%d ",(*(m+j)+i));
+            printf("%d ",&m[i][j]);
+        }
+        printf("\n");
+    }
+    
+    for(int i=0;i<ROW;i++){
+        free(m[i]);
+    }
+    
+    free(m);
 }
