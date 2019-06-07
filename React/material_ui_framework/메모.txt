@@ -1,0 +1,14 @@
+1.
+import AppBar from 'material-ui/AppBar'
+import Toolbar from 'material-ui/Toolbar'
+import {AppBar, Toolbar} from 'material-ui'
+
+2.
+<Grid item sm={6} />
+
+3.
+<Paper styles={{padding:20}}>
+
+const styles = {
+  Paper: { padding: 20, marginTop: 10, marginBottom: 10 }
+}
