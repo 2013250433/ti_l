@@ -14,6 +14,7 @@ var mainState = {
         
         game.physics.arcade.enable(this.bird);
         
+        this.bird.anchor.setTo(-0.2, 0.5);
         this.bird.body.gravity.y = 1000;
         
         var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -23,10 +24,20 @@ var mainState = {
     update: function() {
         if(this.bird.y<0 || this.bird.y > 490)
             this.restartGame();
+        
+        if(this.bird.angle < 20)
+            this.bird.angle += 1;
     },
     
     jump: function() {
         this.bird.body.velocity.y = -350;
+        
+        var animation  = game.add.tween(this.bird);
+        
+        animation.to({angle: -20}, 100);
+        
+        animation.start();
+        
     },
     
     addOnePipe: function(x, y){
