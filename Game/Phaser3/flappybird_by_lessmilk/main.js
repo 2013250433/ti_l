@@ -19,6 +19,7 @@ var mainState = {
         
         var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         spaceKey.onDown.add(this.jump, this);
+        console.log(this);
     },
     
     update: function() {
@@ -27,9 +28,16 @@ var mainState = {
         
         if(this.bird.angle < 20)
             this.bird.angle += 1;
+        
+        
+        game.physics.arcade.overlap(this.bird, this.pipes, this.hitPipe, null, this);
     },
     
     jump: function() {
+        
+        if(this.bird.alive == false)
+            return;
+        
         this.bird.body.velocity.y = -350;
         
         var animation  = game.add.tween(this.bird);
@@ -61,7 +69,18 @@ var mainState = {
                 this.addOnePipe(400, i * 60 + 10);
         }
     },
-    
+    hitPipe: function(){
+        if(this.bird.alive == false)
+            return;
+        
+        this.bird.alive = false;
+        
+        game.time.evnets.remove(this.timer);
+        
+        this.pipes.forEach(function(p){
+            p.body.velocity.x = 0;
+        }, this);
+    },
     restartGame: function() {
         game.state.start('main')
     }
