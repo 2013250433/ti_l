@@ -29,7 +29,6 @@ var mainState = {
         if(this.bird.angle < 20)
             this.bird.angle += 1;
         
-        
         game.physics.arcade.overlap(this.bird, this.pipes, this.hitPipe, null, this);
     },
     
