@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	function my_send(){
+		alert('check jquery');
+		location.href="../hello?name="+$("#name").val();
+	}
+</script>
+</head>
+<body>
+	<input id="name" placeholder="이름을 적어주세요"/>
+	<input type="button" value="전송" onClick="my_send()">
+</body>
+</html>
