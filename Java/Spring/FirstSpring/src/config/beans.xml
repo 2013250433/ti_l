@@ -6,6 +6,16 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	
 	<context:property-placeholder location="classpath:config/value.properties"></context:property-placeholder>
+	<!-- Component scan 설정 -->
+	<context:component-scan base-package="myspring.user"/>
+	
+	<!-- DataSource 설정 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="${db.driverClass}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
 	
 	<bean id="hello2" class="myspring.di.xml.Hello">
 		<constructor-arg index="0" value="${myname}"/>
