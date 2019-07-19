@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +26,14 @@ public class UserClient {
 	@Autowired
 	UserService service;
 
+	@Test
+	public void configTest() {
+		SqlSession session = context.getBean("sqlSession",SqlSession.class);
+		System.out.println(session.getClass().getName());
+		
+		UserVO vo = session.selectOne("userNS.selectUserById","gildong");
+		System.out.println(vo);
+	}
 	@Test
 	@Ignore
 	public void updateUserTest() {
