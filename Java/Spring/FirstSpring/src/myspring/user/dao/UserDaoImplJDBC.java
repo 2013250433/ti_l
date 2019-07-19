@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import myspring.user.vo.UserVO;
 
-@Repository("userDao")
+//@Repository("userDao")
 public class UserDaoImplJDBC implements UserDao {
 	private JdbcTemplate jdbcTemplate;
 	

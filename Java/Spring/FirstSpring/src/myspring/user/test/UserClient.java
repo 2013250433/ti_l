@@ -34,7 +34,7 @@ public class UserClient {
 		
 		//dao.insert(new UserVO("dooly", "둘리", "남", "서울"));
 		//dao.update(new UserVO("dooly", "둘리2", "여", "경기"));
-		dao.delete("dooly");
+		//dao.delete("dooly");
 		List<UserVO> list = dao.readAll();
 		for (UserVO userVO : list) {
 			System.out.println(userVO);
