@@ -2,9 +2,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 	
+	<bean id="performanceTraceAdvice" class="myspring.aop.xml.PerformanceTraceAdvice" />
+	
+	<aop:config>
+		<aop:aspect id="traceAspect" ref="performanceTraceAdvice">
+			<aop:around pointcut="execution(public * myspring.user.service..*(..))" method="trace" />
+		</aop:aspect>
+	</aop:config>
 	<context:property-placeholder location="classpath:config/value.properties"></context:property-placeholder>
 	<!-- Component scan 설정 -->
 	<context:component-scan base-package="myspring.user"/>

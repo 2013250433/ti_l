@@ -45,7 +45,6 @@ public class UserClient {
 	}
 
 	@Test
-	@Ignore
 	public void getUserTest() {
 		UserVO user = service.getUser("gildong");
 		System.out.println(user);
@@ -53,6 +52,7 @@ public class UserClient {
 	}
 
 	@Test
+	@Ignore
 	public void dataSourceTest() {
 		DataSource ds = (DataSource) context.getBean("dataSource");
 		try {
