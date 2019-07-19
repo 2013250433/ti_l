@@ -7,6 +7,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 	
+	<aop:aspectj-autoproxy />
+	
 	<bean id="performanceTraceAdvice" class="myspring.aop.xml.PerformanceTraceAdvice" />
 	
 	<aop:config>
@@ -16,7 +18,7 @@
 	</aop:config>
 	<context:property-placeholder location="classpath:config/value.properties"></context:property-placeholder>
 	<!-- Component scan 설정 -->
-	<context:component-scan base-package="myspring.user"/>
+	<context:component-scan base-package="myspring.user,myspring.aop.annot"/>
 	
 	<!-- DataSource 설정 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
