@@ -3,6 +3,7 @@ package myspring.user.test;
 import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -15,6 +16,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import myspring.user.dao.UserDao;
 import myspring.user.service.UserService;
 import myspring.user.vo.UserVO;
 
@@ -25,7 +27,19 @@ public class UserClient {
 	ApplicationContext context;
 	@Autowired
 	UserService service;
-
+	
+	@Test
+	public void daoTest() {
+		UserDao dao = context.getBean("userDao",UserDao.class);
+		
+		//dao.insert(new UserVO("dooly", "둘리", "남", "서울"));
+		//dao.update(new UserVO("dooly", "둘리2", "여", "경기"));
+		dao.delete("dooly");
+		List<UserVO> list = dao.readAll();
+		for (UserVO userVO : list) {
+			System.out.println(userVO);
+		}
+	}
 	@Test
 	public void configTest() {
 		SqlSession session = context.getBean("sqlSession",SqlSession.class);
