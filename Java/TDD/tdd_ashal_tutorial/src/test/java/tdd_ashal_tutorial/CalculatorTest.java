@@ -10,6 +10,11 @@ package tdd_ashal_tutorial;
 //lhs operator rhs
 // lhs = rhs
 
+
+//TDD
+//1. RED
+//2. Green -> 3
+//3. Refactoring -> 1+ 2 -> x + y => Clean Code
 import org.junit.Test;
 
 import static org.junit.Assert.assertThat;
