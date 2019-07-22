@@ -12,3 +12,13 @@ public class AppTest {
         assertNotNull("app should have a greeting", classUnderTest.getGreeting());
     }
 }
+
+//1 + 2 = 3
+//Calculator
+// - plus(x, y)
+// - minus(x, y)
+// - multiply(x, y)
+// - divide(x, y)
+//lhs, rhs
+//lhs operator rhs
+// lhs = rhs
