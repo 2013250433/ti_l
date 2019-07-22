@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e795fa9-1e7d-4dc0-a817-02876ce3a60d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java" afterDir="false" />
     </list>
@@ -52,22 +51,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="342">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+            <state relative-caret-position="722">
+              <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#586#587#0" expanded="true" />
+                <element signature="e#641#642#0" expanded="true" />
+                <element signature="e#733#734#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,8 +90,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/AppTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java" />
       </list>
     </option>
   </component>
@@ -168,7 +170,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563803490974" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563805998841" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -187,7 +189,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CalculatorTest.plus">
+  <component name="RunManager" selected="JUnit.CalculatorTest">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tdd_ashal_tutorial.App" />
       <module name="tdd_ashal_tutorial.main" />
@@ -232,6 +234,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CalculatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tdd_ashal_tutorial.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tdd_ashal_tutorial.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tdd_ashal_tutorial" />
+      <option name="MAIN_CLASS_NAME" value="tdd_ashal_tutorial.CalculatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CalculatorTest.plus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tdd_ashal_tutorial.test" />
       <extension name="coverage">
@@ -250,6 +267,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CalculatorTest" />
         <item itemvalue="JUnit.CalculatorTest.plus" />
         <item itemvalue="JUnit.AppTest.testAppHasAGreeting" />
         <item itemvalue="Application.App" />
@@ -271,20 +289,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AppTest - 2019.07.22 at 21h 55m 27s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppTest_testAppHasAGreeting - 2019.07.22 at 22h 07m 28s.xml">
-      <configuration name="AppTest.testAppHasAGreeting" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 21m 27s.xml">
-      <configuration name="CalculatorTest.plus" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 23m 08s.xml">
-      <configuration name="CalculatorTest.plus" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 35m 45s.xml">
       <configuration name="CalculatorTest.plus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 56m 56s.xml">
+      <configuration name="CalculatorTest.plus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 57m 11s.xml">
+      <configuration name="CalculatorTest.plus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 57m 24s.xml">
+      <configuration name="CalculatorTest.plus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.22 at 22h 58m 18s.xml">
+      <configuration name="CalculatorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.22 at 22h 58m 39s.xml">
+      <configuration name="CalculatorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.22 at 22h 58m 52s.xml">
+      <configuration name="CalculatorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.22 at 22h 59m 18s.xml">
+      <configuration name="CalculatorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.22 at 22h 59m 28s.xml">
+      <configuration name="CalculatorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.22 at 22h 59m 43s.xml">
+      <configuration name="CalculatorTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -296,7 +329,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32335907" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32335907" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
@@ -305,7 +338,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32973894" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32973894" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32973894" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -345,20 +378,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="342">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+        <state relative-caret-position="722">
+          <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+            <element signature="e#733#734#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
