@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	
+	<!-- MapperScannerConfigure -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="myspring.user.dao"/>
+		<property name="annotationClass" value="myspring.user.dao.MyMapper"></property>
+	</bean>
+	<!-- Mapper 설정 -->
+
+<bean class="org.mybatis.spring.mapper.MapperFactoryBean" id="userMapper">
+<property value="myspring.user.dao.UserMapper" name="mapperInterface"/>
+<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+	<!-- mybatis-spring 설정 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource"  ref="dataSource" />
+		<property name="configLocation"   value="classpath:/config/SqlMapConfig.xml" />
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:/config/User.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+	
+	<aop:aspectj-autoproxy />
+	
+	<bean id="performanceTraceAdvice" class="myspring.aop.xml.PerformanceTraceAdvice" />
+	
+	<aop:config>
+		<aop:aspect id="traceAspect" ref="performanceTraceAdvice">
+			<aop:around pointcut="execution(public * myspring.user.service..*(..))" method="trace" />
+		</aop:aspect>
+	</aop:config>
+	<context:property-placeholder location="classpath:config/value.properties"></context:property-placeholder>
+	<!-- Component scan 설정 -->
+	<context:component-scan base-package="myspring.user,myspring.aop.annot"/>
+	
+	<!-- DataSource 설정 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="${db.driverClass}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	
+	<bean id="hello2" class="myspring.di.xml.Hello">
+		<constructor-arg index="0" value="${myname}"/>
+		<constructor-arg index="1" ref="${myprinter}"/>
+		<property name="names">
+			<list>
+				<value>${value1}</value>
+				<value>${value2}</value>
+				<value>${value3}</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="hello" class="myspring.di.xml.Hello">
+		<!-- setName(name) -->
+		<property name="name" value="Spring"></property>
+		<!-- setPrinter(Printer) -->
+		<property name="printer" ref="printer"/>
+	</bean>
+	
+	<bean id= "printer" class="myspring.di.xml.StringPrinter"></bean>
+	<bean id= "consolePrinter" class="myspring.di.xml.ConsolePrinter"></bean>
+</beans>
