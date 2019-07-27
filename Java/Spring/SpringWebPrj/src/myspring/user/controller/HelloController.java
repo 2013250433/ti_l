@@ -16,6 +16,6 @@ public class HelloController {
 	public String hello(Model model) {
 		String msg = helloBean.sayHello();
 		model.addAttribute("greet", msg);
-		return "hello";
+		return "hello.jsp";
 	}
 }
