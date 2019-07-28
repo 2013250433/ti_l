@@ -9,12 +9,13 @@ package tdd_ashal_tutorial;
 //lhs, rhs
 //lhs operator rhs
 // lhs = rhs
-
+// fibonacci => 1 1 2 3 5 8 13 21 34 55
 
 //TDD
 //1. RED
 //2. Green -> 3
 //3. Refactoring -> 1+ 2 -> x + y => Clean Code
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,5 +39,14 @@ public class CalculatorTest {
     @Test
     public void minus(){
         assertThat(calculator.minus(5,3), is(2));
+    }
+
+    @Test
+    public void fibonacci() {
+        assertThat(calculator.fib(1), is(1));
+       assertThat(calculator.fib(2), is(1));
+        assertThat(calculator.fib(3), is(2));
+//        assertThat(calculator.fib(4), is(3));
+//        assertThat(calculator.fib(5), is(5));
     }
 }

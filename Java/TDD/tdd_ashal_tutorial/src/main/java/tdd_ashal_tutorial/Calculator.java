@@ -15,4 +15,10 @@ public class Calculator {
         return minus(x-1, y-1);
     }
 
+    public int fib(int x) {
+        if(x == 1|| x == 2){
+            return 1;
+        }
+        return fib(x-2)+fib(x-1);
+    }
 }

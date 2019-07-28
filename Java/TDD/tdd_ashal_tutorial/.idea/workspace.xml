@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e795fa9-1e7d-4dc0-a817-02876ce3a60d" name="Default Changelist" comment="" />
+    <list default="true" id="9e795fa9-1e7d-4dc0-a817-02876ce3a60d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Spring/SpringWebPrj/target/m2e-wtp/web-resources/META-INF/maven/SpringWebPrj/SpringWebPrj/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring/SpringWebPrj/target/m2e-wtp/web-resources/META-INF/maven/SpringWebPrj/SpringWebPrj/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Kotlin/HelloKotlin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Kotlin/HelloKotlin/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,26 +24,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/AppTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
@@ -47,20 +32,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+            <state relative-caret-position="452">
+              <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#586#587#0" expanded="true" />
@@ -87,16 +72,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/AppTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java" />
         <option value="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="350" />
-    <option name="y" value="183" />
-    <option name="width" value="1400" />
-    <option name="height" value="762" />
+    <option name="x" value="-1039" />
+    <option name="y" value="465" />
+    <option name="width" value="1007" />
+    <option name="height" value="1212" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -104,13 +89,24 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tdd_ashal_tutorial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tdd_ashal_tutorial" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563805998841" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564319084836" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -229,15 +225,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 35m 45s.xml">
-      <configuration name="CalculatorTest.plus" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 56m 56s.xml">
-      <configuration name="CalculatorTest.plus" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 57m 11s.xml">
-      <configuration name="CalculatorTest.plus" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 57m 24s.xml">
       <configuration name="CalculatorTest.plus" configurationId="JUnit" />
     </history-entry>
@@ -259,11 +246,21 @@
     <history-entry file="CalculatorTest - 2019.07.22 at 22h 59m 43s.xml">
       <configuration name="CalculatorTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.28 at 21h 59m 34s.xml">
+      <configuration name="CalculatorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.28 at 22h 00m 05s.xml">
+      <configuration name="CalculatorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.28 at 22h 01m 14s.xml">
+      <configuration name="CalculatorTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="350" y="183" width="1400" height="762" extended-state="0" />
+    <frame x="-1039" y="465" width="1007" height="1212" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3283582" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27349526" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -272,7 +269,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32973894" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26808906" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -317,23 +314,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+        <state relative-caret-position="452">
+          <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#586#587#0" expanded="true" />
             <element signature="e#641#642#0" expanded="true" />
             <element signature="e#733#734#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
         </state>
       </provider>
     </entry>
