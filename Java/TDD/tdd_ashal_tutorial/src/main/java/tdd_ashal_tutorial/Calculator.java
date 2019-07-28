@@ -16,6 +16,8 @@ public class Calculator {
     }
 
     public int fib(int x) {
+        if(x<=0)
+            return 0;
         if(x == 1|| x == 2){
             return 1;
         }

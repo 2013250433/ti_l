@@ -42,11 +42,17 @@ public class CalculatorTest {
     }
 
     @Test
-    public void fibonacci() {
+    public void fibonacciNormal() {
         assertThat(calculator.fib(1), is(1));
-       assertThat(calculator.fib(2), is(1));
+        assertThat(calculator.fib(2), is(1));
         assertThat(calculator.fib(3), is(2));
-//        assertThat(calculator.fib(4), is(3));
-//        assertThat(calculator.fib(5), is(5));
+        assertThat(calculator.fib(4), is(3));
+        assertThat(calculator.fib(5), is(5));
+    }
+
+    @Test
+    public void fibonacciError() {
+        assertThat(calculator.fib(-1), is(0));
+        assertThat(calculator.fib(0), is(0));
     }
 }
