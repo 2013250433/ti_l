@@ -12,12 +12,3 @@ function zero(){
     throw Error("Error!");
 }
 zero();
-
-//Maximum call stack
-function hello(){
-    bye();
-}
-function bye(){
-    hello();
-}
-hello();
