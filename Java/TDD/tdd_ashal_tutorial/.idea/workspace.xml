@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9e795fa9-1e7d-4dc0-a817-02876ce3a60d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../Spring/SpringWebPrj/target/m2e-wtp/web-resources/META-INF/maven/SpringWebPrj/SpringWebPrj/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring/SpringWebPrj/target/m2e-wtp/web-resources/META-INF/maven/SpringWebPrj/SpringWebPrj/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tdd_ashal_tutorial/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Kotlin/HelloKotlin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Kotlin/HelloKotlin/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -44,7 +42,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
+            <state relative-caret-position="791">
               <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -106,7 +104,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564319391024" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564319408318" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -226,9 +224,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CalculatorTest_plus - 2019.07.22 at 22h 57m 24s.xml">
-      <configuration name="CalculatorTest.plus" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CalculatorTest - 2019.07.22 at 22h 58m 18s.xml">
       <configuration name="CalculatorTest" configurationId="JUnit" />
     </history-entry>
@@ -256,10 +251,12 @@
     <history-entry file="CalculatorTest - 2019.07.28 at 22h 01m 14s.xml">
       <configuration name="CalculatorTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.28 at 22h 09m 49s.xml">
+      <configuration name="CalculatorTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-1039" y="465" width="1007" height="1212" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27349526" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -270,7 +267,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26808906" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26808906" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -324,7 +321,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/tdd_ashal_tutorial/CalculatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
+        <state relative-caret-position="791">
           <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
