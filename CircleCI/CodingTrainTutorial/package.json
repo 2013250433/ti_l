@@ -1,0 +1,17 @@
+{
+  "name": "codingtraintutorial",
+  "version": "1.0.0",
+  "description": "all about test",
+  "main": "sketch.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "testing"
+  ],
+  "author": "The Coding train",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
